@@ -1,0 +1,27 @@
+<h1>Reactive Forms</h1>
+
+<b>Enter User Name: </b><input type="text" [formControl]="name" />
+
+<p>
+    Value: {{ name.value }}
+</p>
+
+<p>
+    <button (click)="updateName()">Update Name</button>
+</p><hr><br/>
+
+<form [formGroup]="profileForm"  (ngSubmit)="onSubmit()">
+  
+    <label>
+      First Name:
+      <input type="text" required formControlName="firstName">
+    </label>
+  
+    <label>
+      Last Name:
+      <input type="text" formControlName="lastName">
+    </label>
+
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <input type="button" (click)="resetForm()" value="Reset" />
+</form>   
